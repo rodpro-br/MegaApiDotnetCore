@@ -1,150 +1,175 @@
-<h1 align="center">
-  <br />
-  <img
-    src="./_docs/assets/icon.png"
-    alt="Mega Man Robots API"
-    width="150"
-  />
-  <br />
-  <b>Mega Man Robots API</b>
-  <br />
-  <sub
-    ><sup><b>(MEGA-MAN-ROBOTS)</b></sup></sub
-  >
-  <br />
-  <a
-    href="https://github.com/felipeAguiarCode/MegaApiDotnetCore/actions/workflows/build.yml"
-  >
-    <img
-      src="https://github.com/felipeAguiarCode/MegaApiDotnetCore/actions/workflows/build.yml/badge.svg"
-      alt=""
-    />
-  </a>
-  <a href="https://github.com/felipeAguiarCode/MegaApiDotnetCore/releases/latest">
-    <img
-      src="https://img.shields.io/github/v/release/felipeAguiarCode/MegaApiDotnetCore"
-      alt="Latest Release"
-    />
-  </a>
-</h1>
+# Megaman API
 
-<p align="center">
-  This .NET Core API is designed to serve JSON formatted data about bosses from
-  the Mega Man series. It is a backend service built with .NET Core 3.1 and
-  various modern dependencies for data management and API response handling.
-  <br />
-</p>
+## 🔧 Sobre o Projeto
+Este projeto consiste em uma API desenvolvida em .NET Core 3.1 para listar os dados dos bosses do jogo Megaman. O principal objetivo é fornecer um backend que disponibilize os dados dos robôs em formato JSON.
 
-<p align="center">
-  Developed with Entity Framework Core and other modern .NET technologies, this
-  project aims to provide a robust API for accessing Mega Man robot data.
-  <br />
-</p>
-
-<p align="center">
-  <br />
-  <img src="./_docs/assets/carbon.png" />
-</p>
-
-## API Endpoints
-
-<table align="center">
-  <tr>
-    <th>Method</th>
-    <th>Endpoint</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td>/api/v1/robots</td>
-    <td>Returns a list of all robots</td>
-  </tr>
-  <tr>
-    <td>GET</td>
-    <td>/api/v1/robots/{id}</td>
-    <td>Returns details of a specific robot by ID</td>
-  </tr>
-  <tr>
-    <td>POST</td>
-    <td>/api/v1/robots</td>
-    <td>Endpoint to create a new robot entry</td>
-  </tr>
-</table>
-
-## Techniques Used
-
-<p align="center">
-  - <b>Entity Framework Core:</b> ORM for data management.<br />
-  - <b>RESTful API Design:</b> Ensures clear and effective communication
-  endpoints.<br />
-  - <b>Dependency Injection:</b> Used throughout to promote loose coupling and
-  enhanced testability.<br />
-</p>
-
-## Dependencies
-
-<table align="center">
-  <tr>
-    <th>Package</th>
-    <th>Version</th>
-    <th>Link</th>
-  </tr>
-  <tr>
-    <td>Microsoft.EntityFrameworkCore</td>
-    <td>3.1.8</td>
-    <td>
-      <a
-        href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/3.1.8"
-        >NuGet</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Microsoft.EntityFrameworkCore.Design</td>
-    <td>3.1.8</td>
-    <td>
-      <a
-        href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Design/3.1.8"
-        >NuGet</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Microsoft.EntityFrameworkCore.SqlServer</td>
-    <td>3.1.8</td>
-    <td>
-      <a
-        href="https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/3.1.8"
-        >NuGet</a
-      >
-    </td>
-  </tr>
-  <tr>
-    <td>Newtonsoft.Json</td>
-    <td>12.0.2</td>
-    <td>
-      <a href="https://www.nuget.org/packages/Newtonsoft.Json/12.0.2">NuGet</a>
-    </td>
-  </tr>
-</table>
-
-## :gear: Arch
-
-```🌐
-src
-├── 📂 Controllers      [Routes for endpoints]
-├── 📂 Models           [Database models]
-├── 📂 Services         [Business rules]
-├── 📂 Middlewares      [Intermediate functions between the HTTP request and the final server response]
-├── 📂 Database         [Structures related to the database]
-│   ├── 📂 DTOs             [Input Models and View Models (Data Transfer Objects)]
-│   ├── 📂 EntityFramework  [Files related to the ORM Entity Framework]
-│   │     ├── 📂 Context         [Entity context settings]
-│   │     ├── 📂 Migrations      [Migrations for database updates]
-│   ├── 📂 Repositories     [Repository pattern]
+Exemplo de resposta JSON fornecida pela API:
+```json
+{
+  "Id": 1,
+  "Code": "DLN/DRN-003",
+  "Name": "Cutman",
+  "HP": 150,
+  "Picture": "https://vignette.wikia.nocookie.net/megaman/images/2/22/Cutman.png"
+}
 ```
 
-## License This software is licensed under the terms of the [MIT]
+---
 
-⌨️ FelipeAguiar -
-[Github](https://github.com/felipeAguiarCode)
+## 📊 Estrutura de Pastas
+```
+.vs/
+.vscode/
+bin/
+Controllers/
+    RobotsController.cs
+Database/
+middlewares/
+Models/
+obj/
+Properties/
+Services/
+appsettings.Development.json
+appsettings.json  
+global.json
+MegamanApi.csproj  
+MegamanApi.sln
+Program.cs
+Startup.cs
+```
+
+---
+
+## 🔧 Tecnologias Utilizadas
+- **ASP.NET Core 3.1**: Framework para criação de APIs RESTful.
+- **Entity Framework Core**: ORM para manipulação de dados.
+- **SQL Server**: Banco de dados relacional para armazenamento dos robôs.
+- **Newtonsoft.Json**: Biblioteca para serialização e desserialização de objetos JSON.
+
+---
+
+## 📈 Endpoints
+### **Base URL**
+```
+/api/v1/robots
+```
+
+### **GET /api/v1/robots**
+Retorna a lista de todos os robôs cadastrados.
+
+**Exemplo de Resposta:**
+```json
+[
+  {
+    "Id": 1,
+    "Code": "DLN/DRN-003",
+    "Name": "Cutman",
+    "HP": 150,
+    "Picture": "https://vignette.wikia.nocookie.net/megaman/images/2/22/Cutman.png"
+  }
+]
+```
+
+### **GET /api/v1/robots/{id}**
+Retorna os detalhes de um robô específico pelo `id`.
+
+**Exemplo de Resposta de Sucesso (Status 200):**
+```json
+{
+  "Id": 1,
+  "Code": "DLN/DRN-003",
+  "Name": "Cutman",
+  "HP": 150,
+  "Picture": "https://vignette.wikia.nocookie.net/megaman/images/2/22/Cutman.png"
+}
+```
+
+**Exemplo de Resposta de Erro (Status 404):**
+```json
+{
+  "message": "Nenhum robo encontrado"
+}
+```
+
+### **POST /api/v1/robots**
+Endpoint para criação de novos robôs.
+
+**Exemplo de Resposta de Sucesso (Status 200):**
+```json
+{
+  "message": "Robo criado com sucesso"
+}
+```
+
+---
+
+## 📊 Dependências
+As principais dependências do projeto estão descritas na tabela abaixo:
+
+| Dependência | Versão | Descrição |
+|--------------|---------|-------------|
+| [ASP.NET Core](https://dotnet.microsoft.com/download/dotnet/3.1) | 3.1 | Framework para criação de APIs RESTful. |
+| [Entity Framework Core](https://learn.microsoft.com/pt-br/ef/core/) | 3.1.8 | ORM para acesso a bancos de dados. |
+| [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/3.1.8) | 3.1.8 | Provider do SQL Server para o Entity Framework Core. |
+| [Microsoft.EntityFrameworkCore.Design](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Design/3.1.8) | 3.1.8 | Ferramentas de design do Entity Framework Core. |
+| [Newtonsoft.Json](https://www.newtonsoft.com/json) | 12.0.2 | Biblioteca para serialização e desserialização de objetos JSON. |
+
+---
+
+## 📚 Configuração do Projeto
+Para executar o projeto, siga os seguintes passos:
+
+1. **Clone o Repositório**
+   ```bash
+   git clone https://github.com/seu-usuario/megaman-api.git
+   cd megaman-api
+   ```
+
+2. **Configure o Banco de Dados**
+   - Certifique-se de que o SQL Server esteja em execução.
+   - Ajuste a string de conexão em `appsettings.Development.json`.
+
+3. **Execute as Migrações do Banco de Dados**
+   ```bash
+   dotnet ef database update
+   ```
+
+4. **Execute o Projeto**
+   ```bash
+   dotnet run
+   ```
+
+O projeto estará disponível em: [http://localhost:5000](http://localhost:5000)
+
+---
+
+## 📊 Estrutura do Código
+A estrutura dos arquivos é descrita a seguir:
+
+- **Controllers/**: Contém os controladores que lidam com as requisições HTTP.
+  - **RobotsController.cs**: Controlador responsável pelos endpoints relacionados aos robôs.
+
+- **Database/**: Contém os arquivos de configuração e migrações do banco de dados.
+
+- **middlewares/**: Pasta reservada para futuros middlewares de tratamento de requisições e respostas.
+
+- **Models/**: Contém as classes de modelo que representam os objetos da aplicação.
+
+- **Services/**: Contém os serviços que encapsulam as regras de negócio e a lógica de acesso ao banco de dados.
+
+- **appsettings.json**: Arquivo de configurações gerais da aplicação.
+
+- **Startup.cs**: Configuração dos serviços, middlewares e pipeline de requisição HTTP.
+
+- **Program.cs**: Classe principal que inicializa e executa o servidor web.
+
+---
+
+## 📚 Contribuições
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests para melhorias e correções.
+
+---
+
+## ⚙️ Licença
+Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
